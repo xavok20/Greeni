@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeni – Riego Inteligente para Todos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-line::after {
+            content: '→';
+            color: #2C5F2D;
+            font-size: 2rem;
+            line-height: 1;
+            margin: 0 1rem;
+        }
+        .flow-line:last-child::after {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-[#F4F4F4] text-[#333333]">
+
+    <main class="w-full">
+        <header class="bg-white text-center py-20 px-6" style="background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://placehold.co/1200x800/97BC62/FFFFFF?text=Greeni'); background-size: cover; background-position: center;">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold text-[#2C5F2D] mb-4">Greeni</h1>
+                <p class="text-xl md:text-2xl text-[#333333] font-semibold">Cultiva inteligencia, riega con conciencia.</p>
+            </div>
+        </header>
+
+        <section id="resumen-ejecutivo" class="py-16 md:py-24 px-6">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#2C5F2D] mb-6">Resumen Ejecutivo</h2>
+                <p class="text-lg max-w-3xl mx-auto leading-relaxed">Greeni es un sistema de riego modular, inteligente y accesible que se adapta al tipo de planta, ambiente y estilo de vida del usuario. Utiliza sensores ambientales, una base de datos vegetal y una interfaz amigable tipo mascota virtual para fomentar el cuidado sostenible de jardines y cultivos urbanos. Los usuarios han mostrado un gran entusiasmo, describiendo a Greeni como 'Innovador', 'Inteligente' y 'Práctico', validando nuestra propuesta de valor.</p>
+            </div>
+        </section>
+
+        <section id="problema" class="bg-white py-16 md:py-24 px-6">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#2C5F2D] mb-4">El Problema y la Oportunidad</h2>
+                    <p class="text-lg mb-6">En el ajetreado mundo actual, mantener vivas y sanas nuestras plantas es más difícil que nunca. Los sistemas de riego son a menudo caros, complicados o simplemente ineficaces, creando una clara oportunidad para una solución innovadora.</p>
+                    <div class="bg-[#F4F4F4] rounded-xl shadow-lg p-6 text-center">
+                        <span class="text-6xl font-bold text-[#97BC62]">6 de cada 10</span>
+                        <p class="text-xl mt-2">personas olvidan o no saben cómo regar correctamente sus plantas.</p>
+                    </div>
+                </div>
+                <div class="bg-[#F4F4F4] rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-[#2C5F2D] mb-4 text-center">¿Y si tus plantas pudieran hablar?</h3>
+                    <p class="text-center mb-6">Nuestra encuesta inicial reveló un gran entusiasmo y la necesidad de una solución como Greeni. Las palabras clave más repetidas fueron:</p>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="bg-[#97BC62] text-white font-semibold py-2 px-4 rounded-full">Innovador</span>
+                        <span class="bg-[#97BC62] text-white font-semibold py-2 px-4 rounded-full">Inteligente</span>
+                        <span class="bg-[#2C5F2D] text-white font-semibold py-2 px-4 rounded-full">Práctico</span>
+                        <span class="bg-[#97BC62] text-white font-semibold py-2 px-4 rounded-full">Interesante</span>
+                        <span class="bg-[#2C5F2D] text-white font-semibold py-2 px-4 rounded-full">Domótica</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="propuesta-de-valor" class="py-16 md:py-24 px-6">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#2C5F2D] mb-4">Nuestra Propuesta de Valor: Greeni</h2>
+                <p class="text-lg max-w-3xl mx-auto mb-12">Greeni es un sistema de riego modular e inteligente que le da una voz a tus plantas. A través de sensores y una app interactiva, convierte el cuidado de las plantas en una experiencia sencilla, divertida y eficiente.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <span class="text-5xl">🤖</span>
+                        <h3 class="text-xl font-bold my-2 text-[#2C5F2D]">Riego Automático</h3>
+                        <p>Se adapta a la humedad, temperatura, luz y tipo de planta.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <span class="text-5xl">📱</span>
+                        <h3 class="text-xl font-bold my-2 text-[#2C5F2D]">Mascota Virtual</h3>
+                        <p>Recibe alertas y notificaciones como si tu planta te hablara.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <span class="text-5xl">📊</span>
+                        <h3 class="text-xl font-bold my-2 text-[#2C5F2D]">Monitoreo y Diagnóstico</h3>
+                        <p>Controla la salud de tu planta en tiempo real desde tu móvil.</p>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold text-[#2C5F2D] mt-16 mb-6">Tecnología en Acción: ¿Cómo funciona?</h3>
+                 <div class="flex flex-col md:flex-row items-center justify-center flex-wrap">
+                    <div class="flow-line text-center p-4">
+                        <p class="text-4xl">🌡️</p>
+                        <p class="font-bold mt-2">Sensores</p>
+                        <p>Miden el ambiente</p>
+                    </div>
+                    <div class="flow-line text-center p-4">
+                         <p class="text-4xl">🧠</p>
+                        <p class="font-bold mt-2">ESP32</p>
+                        <p>Procesa los datos</p>
+                    </div>
+                     <div class="flow-line text-center p-4">
+                        <p class="text-4xl">📲</p>
+                        <p class="font-bold mt-2">App Móvil</p>
+                        <p>Analiza y notifica</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <p class="text-4xl">💧</p>
+                        <p class="font-bold mt-2">Bomba de agua</p>
+                        <p>Riega con precisión</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="validacion-y-propuesta" class="bg-white py-16 md:py-24 px-6">
+            <div class="max-w-6xl mx-auto">
+                 <h2 class="text-3xl md:text-4xl font-bold text-center text-[#2C5F2D] mb-4">Validación: Lo que más valoran nuestros usuarios</h2>
+                 <p class="text-lg text-center max-w-3xl mx-auto mb-12">La retroalimentación de nuestras encuestas es clara: los usuarios buscan una solución que sea a la vez inteligente y fácil de usar. Greeni responde directamente a estas necesidades con sus funciones más apreciadas, lo que confirma nuestra propuesta de valor.</p>
+                <div class="bg-[#F4F4F4] rounded-xl shadow-lg p-8">
+                     <div class="chart-container">
+                        <canvas id="featuresChart"></canvas>
+                    </div>
+                    <p class="text-center text-sm mt-4 text-gray-600">Gráfico: Funciones más valoradas por los usuarios (porcentaje de preferencia).</p>
+                </div>
+                <div class="mt-12 text-center">
+                    <h3 class="text-2xl font-bold text-[#2C5F2D] mb-4">Sugerencias Destacadas de los Usuarios:</h3>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <div class="bg-[#97BC62] text-white py-3 px-6 rounded-full shadow-md">Manual de uso / Guía visual</div>
+                        <div class="bg-[#2C5F2D] text-white py-3 px-6 rounded-full shadow-md">Función social (compartir progreso)</div>
+                        <div class="bg-[#97BC62] text-white py-3 px-6 rounded-full shadow-md">Más opciones visuales de diseño</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mercado" class="py-16 md:py-24 px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-[#2C5F2D] mb-12">Análisis de Mercado y Ventaja Competitiva</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold text-[#2C5F2D] mb-4">Nuestro Público Objetivo</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start"><span class="text-green-600 mr-2 text-2xl">🏡</span>Jardineros urbanos y gente con ritmo de vida acelerado.</li>
+                            <li class="flex items-start"><span class="text-green-600 mr-2 text-2xl">🎓</span>Estudiantes y personas sin experiencia previa en jardinería.</li>
+                            <li class="flex items-start"><span class="text-green-600 mr-2 text-2xl">🍽️</span>Restaurantes y cafeterías con huertos propios.</li>
+                            <li class="flex items-start"><span class="text-green-600 mr-2 text-2xl">🌿</span>Cultivos especializados (medicinales, gourmet).</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-[#2C5F2D] mb-4">¿Por qué Greeni es mejor?</h3>
+                        <div class="overflow-x-auto bg-white rounded-xl shadow-lg">
+                            <table class="w-full text-left">
+                                <thead class="bg-[#2C5F2D] text-white">
+                                    <tr>
+                                        <th class="p-3">Competidor</th>
+                                        <th class="p-3">Problema</th>
+                                        <th class="p-3 rounded-tr-lg">Greeni Gana Por</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b bg-gray-50">
+                                        <td class="p-3">Maceteros con sensor</td>
+                                        <td class="p-3">Sin personalización</td>
+                                        <td class="p-3 font-bold">Base de datos y modularidad</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-3">Jardinería tradicional</td>
+                                        <td class="p-3">Falta de datos/eficiencia</td>
+                                        <td class="p-3 font-bold">Automatización y precisión</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="p-3 rounded-bl-lg">Apps de recordatorio</td>
+                                        <td class="p-3">No riegan, solo notifican</td>
+                                        <td class="p-3 font-bold">Hardware + Software integrado</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="modelo" class="bg-white py-16 md:py-24 px-6">
+             <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-[#2C5F2D] mb-12">Modelo de Negocio y Proyecciones Financieras</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-[#2C5F2D] mb-6">Productos Accesibles</h3>
+                        <div class="space-y-4">
+                            <div class="bg-[#F4F4F4] p-6 rounded-xl shadow-lg border-l-4 border-[#97BC62]">
+                                <h4 class="text-xl font-bold">Greeni Home</h4>
+                                <p class="text-2xl font-bold text-[#2C5F2D]">$19.99</p>
+                                <p>Funciones esenciales para el hogar. **Precio ajustado según encuesta.**</p>
+                            </div>
+                             <div class="bg-[#F4F4F4] p-6 rounded-xl shadow-lg">
+                                <h4 class="text-xl font-bold">Greeni Pro</h4>
+                                <p class="text-2xl font-bold text-[#2C5F2D]">$40</p>
+                                <p>Más sensores y diagnóstico avanzado (módulo opcional).</p>
+                            </div>
+                             <div class="bg-[#F4F4F4] p-6 rounded-xl shadow-lg">
+                                <h4 class="text-xl font-bold">Greeni Cultivo</h4>
+                                <p class="text-2xl font-bold text-[#2C5F2D]">$80</p>
+                                <p>Soluciones para cultivos especializados.</p>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-[#2C5F2D] mt-12 mb-4">Estrategia de Marketing y Canales</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start"><span class="text-green-600 mr-2 text-2xl">🛒</span>Tienda online propia.</li>
+                            <li class="flex items-start"><span class="text-green-600 mr-2 text-2xl">🤝</span>Alianzas con viveros y tiendas verdes.</li>
+                            <li class="flex items-start"><span class="text-green-600 mr-2 text-2xl">🎪</span>Ferias y eventos sostenibles.</li>
+                            <li class="flex items-start"><span class="text-green-600 mr-2 text-2xl">📣</span>Campañas digitales resaltando la "mascota virtual para tu planta".</li>
+                        </ul>
+                    </div>
+                     <div class="bg-[#F4F4F4] rounded-xl shadow-lg p-8">
+                         <h3 class="text-2xl font-bold text-[#2C5F2D] mb-4 text-center">Proyección de Ingresos</h3>
+                         <div class="chart-container">
+                             <canvas id="revenueChart"></canvas>
+                         </div>
+                         <p class="text-center text-sm mt-4 text-gray-600">Gráfico: Ingresos proyectados para los primeros 3 años.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="equipo-emprendedor" class="py-16 md:py-24 px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#2C5F2D] mb-6">Nuestro Equipo Emprendedor</h2>
+                <p class="text-lg max-w-3xl mx-auto mb-12">Detrás de Greeni, Alexander Chantera lidera el proyecto con pasión y visión, combinando experiencia en tecnología y un profundo compromiso con la sostenibilidad.</p>
+                <div class="grid grid-cols-1 md:grid-cols-1 gap-8 justify-items-center">
+                    <div class="bg-white p-6 rounded-xl shadow-lg w-full max-w-sm">
+                        <img src="https://placehold.co/150x150/97BC62/FFFFFF?text=Alexander+C" alt="" class="rounded-full mx-auto mb-4 w-24 h-24 object-cover">
+                        <h4 class="text-xl font-bold text-[#2C5F2D]">Alexander Chantera</h4>
+                        <p class="text-gray-600">Fundador & Desarrollador Principal</p>
+                        <p class="text-sm mt-2">Visionario detrás de Greeni, apasionado por integrar la tecnología verde para un futuro más sostenible. Lidera el desarrollo del prototipo y la estrategia de negocio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="impacto" class="bg-white py-16 md:py-24 px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#2C5F2D] mb-6">Impacto Ambiental y Llamado a la Acción</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center">
+                        <span class="text-6xl">💧</span>
+                        <h3 class="font-bold text-xl mt-2">Ahorro de Agua</h3>
+                        <p>Uso preciso y eficiente del agua, reduciendo el desperdicio.</p>
+                    </div>
+                    <div class="text-center">
+                        <span class="text-6xl">🎓</span>
+                        <h3 class="font-bold text-xl mt-2">Educación Verde</h3>
+                        <p>Fomenta una conexión más profunda con la naturaleza.</p>
+                    </div>
+                     <div class="text-center">
+                        <span class="text-6xl">♻️</span>
+                        <h3 class="font-bold text-xl mt-2">Menos Desperdicio</h3>
+                        <p>Reduce la pérdida de plantas por mal cuidado.</p>
+                    </div>
+                </div>
+                <div class="bg-[#2C5F2D] text-white p-10 rounded-xl shadow-2xl">
+                    <h3 class="text-3xl font-bold mb-4">¡Únete a la revolución verde!</h3>
+                    <p class="text-lg mb-6">¿Quieres ayudar a que más personas conecten con la naturaleza a través de la tecnología? Greeni busca aliados, testers, mentores e inversionistas.</p>
+                    <p class="font-semibold">Alexander Chantera</p>
+                    <p>alexander.chantera@udla.edu.ec | +5930998870755</p>
+                    <a href="#" class="mt-6 inline-block bg-[#97BC62] text-[#2C5F2D] font-bold py-3 px-8 rounded-full hover:bg-white transition-colors">Contáctanos</a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center py-6 bg-gray-800 text-white">
+            <p>&copy; 2025 Greeni. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const COLORS = {
+                darkGreen: '#2C5F2D',
+                lightGreen: '#97BC62',
+                gray: '#333333'
+            };
+            
+            const wrapLabel = (label, maxLength = 16) => {
+                if (label.length <= maxLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + word).length > maxLength) {
+                        lines.push(currentLine.trim());
+                        currentLine = '';
+                    }
+                    currentLine += word + ' ';
+                });
+                lines.push(currentLine.trim());
+                return lines;
+            };
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                }
+                return label;
+            };
+
+            const CHART_DEFAULTS = {
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: COLORS.darkGreen,
+                        titleFont: { size: 16, weight: 'bold' },
+                        bodyFont: { size: 14 },
+                        padding: 15,
+                        cornerRadius: 8,
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        }
+                    }
+                },
+                maintainAspectRatio: false,
+                responsive: true,
+            };
+
+            const featuresCtx = document.getElementById('featuresChart')?.getContext('2d');
+            if (featuresCtx) {
+                new Chart(featuresCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Riego automático por planta', 'Monitoreo en tiempo real', 'Alertas tipo mascota virtual', 'Diagnóstico mensual de salud'],
+                        datasets: [{
+                            label: 'Valoración de los Usuarios',
+                            data: [95, 88, 85, 75],
+                            backgroundColor: [COLORS.lightGreen, COLORS.lightGreen, COLORS.darkGreen, COLORS.darkGreen],
+                            borderColor: [COLORS.lightGreen, COLORS.lightGreen, COLORS.darkGreen, COLORS.darkGreen],
+                            borderWidth: 1,
+                            borderRadius: 5,
+                        }]
+                    },
+                    options: {
+                        ...CHART_DEFAULTS,
+                        indexAxis: 'y',
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                grid: {
+                                    display: false,
+                                    drawBorder: false,
+                                },
+                                ticks: {
+                                    font: { size: 14, family: "'Montserrat', sans-serif" },
+                                    color: COLORS.gray
+                                }
+                            },
+                            y: {
+                                grid: {
+                                    display: false,
+                                    drawBorder: false,
+                                },
+                                ticks: {
+                                    font: { size: 14, family: "'Montserrat', sans-serif" },
+                                    color: COLORS.gray
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            const revenueCtx = document.getElementById('revenueChart')?.getContext('2d');
+            if (revenueCtx) {
+                new Chart(revenueCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Año 1', 'Año 2', 'Año 3'],
+                        datasets: [{
+                            label: 'Ingresos (USD)',
+                            data: [6000, 24000, 60000],
+                            backgroundColor: [COLORS.lightGreen, COLORS.darkGreen, COLORS.lightGreen],
+                            borderColor: [COLORS.lightGreen, COLORS.darkGreen, COLORS.lightGreen],
+                            borderWidth: 1,
+                            borderRadius: 5
+                        }]
+                    },
+                    options: {
+                        ...CHART_DEFAULTS,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return '$' + value / 1000 + 'k';
+                                    },
+                                    font: { size: 14, family: "'Montserrat', sans-serif" },
+                                    color: COLORS.gray
+                                },
+                                 grid: {
+                                    color: '#e0e0e0'
+                                 }
+                            },
+                             x: {
+                                ticks: {
+                                    font: { size: 14, family: "'Montserrat', sans-serif" },
+                                    color: COLORS.gray
+                                },
+                                grid: {
+                                    display: false
+                                }
+                             }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

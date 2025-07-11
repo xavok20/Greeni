@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación Greeni</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdf4; /* Verde claro pastel */
+            color: #166534; /* Verde oscuro */
+        }
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .section-title {
+            color: #14532d; /* Verde aún más oscuro */
+            border-bottom: 2px solid #a7f3d0; /* Borde verde claro */
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .card {
+            background-color: #ecfdf5; /* Verde muy claro */
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="p-4">
+    <div class="container">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-green-800 mb-2">Greeni: Retroalimentación de Clientes Potenciales</h1>
+            <p class="text-green-600 text-lg">Validando nuestra propuesta de valor para el cuidado de plantas</p>
+        </header>
+
+        <section class="mb-10">
+            <h2 class="text-3xl font-semibold section-title">1. Introducción y Metodología</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2 text-green-700">Objetivo</h3>
+                    <p class="text-green-800">Recopilar información real para ajustar y mejorar la propuesta de valor de Greeni, identificando percepciones, necesidades y expectativas del público objetivo.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2 text-green-700">Metodología</h3>
+                    <p class="text-green-800">Encuesta estructurada a 25 posibles clientes (alumnos UDLA). Análisis cuantitativo y cualitativo de los datos.</p>
+                </div>
+            </div>
+            <div class="mt-6 card">
+                <h3 class="text-xl font-bold mb-4 text-green-700">Detalles de la Muestra (N=25)</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-green-800 mb-2">Distribución por Edad</h4>
+                        <div class="chart-container">
+                            <canvas id="ageChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-green-800 mb-2">Distribución por Género</h4>
+                        <div class="chart-container">
+                            <canvas id="genderChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-green-800 mb-2">Ocupación Principal</h4>
+                        <div class="chart-container">
+                            <canvas id="occupationChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-3xl font-semibold section-title">2. Principales Hallazgos</h2>
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2 text-green-700">Percepción General de Greeni</h3>
+                    <p class="text-green-800">Entusiasmo abrumadoramente positivo: "novedosa", "innovadora", "útil", "genial", "eficiente". Destacan su potencial para ayudar a quienes olvidan regar o no saben cómo cuidar plantas.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2 text-green-700">Notificaciones y Alertas ("Mascota Virtual")</h3>
+                    <div class="chart-container">
+                        <canvas id="notificationsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2 text-green-700">Utilidad del Riego Automático</h3>
+                    <div class="chart-container">
+                        <canvas id="autoWateringChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2 text-green-700">Funciones Más Interesantes</h3>
+                    <div class="chart-container">
+                        <canvas id="mostInterestingFunctionsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2 text-green-700">Preferencias de Control</h3>
+                    <div class="chart-container">
+                        <canvas id="controlPreferenceChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2 text-green-700">Aspectos Más Valorados</h3>
+                    <div class="chart-container">
+                        <canvas id="mostValuedAspectsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2 text-green-700">Lugares de Mayor Utilidad</h3>
+                    <div class="chart-container">
+                        <canvas id="utilityPlacesChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2 text-green-700">Disposición a Probar un Prototipo</h3>
+                    <div class="chart-container">
+                        <canvas id="prototypeInterestChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2 text-green-700">Precio Justo Percibido</h3>
+                    <div class="chart-container">
+                        <canvas id="priceChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2 text-green-700">Preferencias de Logos</h3>
+                    <div class="chart-container">
+                        <canvas id="logoChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-6">
+                <h3 class="text-xl font-bold mb-2 text-green-700">Sugerencias de Mejora</h3>
+                <ul class="list-disc list-inside text-green-800 space-y-1">
+                    <li>Compatibilidad (varios tipos de plantas, sembríos grandes).</li>
+                    <li>Funcionalidades Adicionales (historial de datos, fertilizantes, domótica, social).</li>
+                    <li>Mejorar Diseño y Usabilidad (logo, tipografía, manual, accesibilidad app).</li>
+                    <li>Hardware (baterías solares).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-3xl font-semibold section-title">3. Lecciones Aprendidas</h2>
+            <ul class="list-disc list-inside text-green-800 space-y-2">
+                <li><strong>Alta Demanda:</strong> Riego automático y monitoreo en tiempo real son clave.</li>
+                <li><strong>Mercado Amplio:</strong> Potencial en hogares y entornos comerciales.</li>
+                <li><strong>App Móvil Esencial:</strong> Método de control preferido.</li>
+                <li><strong>Factores Críticos:</strong> Facilidad de uso y precio accesible.</li>
+                <li><strong>Oportunidades de Expansión:</strong> Interés en funcionalidades avanzadas (historial, domótica, escalabilidad).</li>
+                <li><strong>Concepto "Mascota Virtual":</strong> Bien recibido y diferenciador.</li>
+                <li><strong>Disposición a la Prueba:</strong> Alta disposición, facilita iteraciones.</li>
+            </ul>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-3xl font-semibold section-title">4. Mejoras Sugeridas</h2>
+            <ul class="list-disc list-inside text-green-800 space-y-2">
+                <li><strong>Priorizar Riego Automático Inteligente:</strong> Destacar precisión y facilidad.</li>
+                <li><strong>Desarrollo de App Móvil como Core:</strong> Intuitiva, completa, con monitoreo y recomendaciones.</li>
+                <li><strong>Explorar Escalabilidad y Versatilidad:</strong> Adaptación a múltiples plantas y sembríos grandes.</li>
+                <li><strong>Integrar Funcionalidades Avanzadas:</strong> Recomendaciones de cuidado, historial de datos, integración domótica.</li>
+                <li><strong>Optimizar Diseño y Estética:</strong> Revisar logo, tipografía, asegurar diseño moderno y funcional.</li>
+                <li><strong>Estrategia de Precios:</strong> Posicionar entre $20 y $40.</li>
+                <li><strong>Desarrollo de Prototipos para Pruebas:</strong> Aprovechar alta disposición para pruebas iterativas.</li>
+                <li><strong>Considerar Fuentes de Energía Sostenibles:</strong> Investigar baterías solares.</li>
+            </ul>
+        </section>
+
+        <footer class="text-center mt-10 text-green-700">
+            <p>&copy; Greeni - ¡Cuidando tus plantas, simplificando tu vida!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Datos para los gráficos
+        const ageData = {
+            labels: ['18-25 años', '26-35 años', '36-50 años', '< 18 años'],
+            datasets: [{
+                data: [76, 12, 8, 4],
+                backgroundColor: ['#34d399', '#10b981', '#059669', '#047857'],
+                borderColor: '#ffffff',
+                borderWidth: 1
+            }]
+        };
+
+        const genderData = {
+            labels: ['Femenino', 'Masculino', 'Prefiero no decirlo'],
+            datasets: [{
+                data: [52, 44, 4],
+                backgroundColor: ['#34d399', '#10b981', '#059669'],
+                borderColor: '#ffffff',
+                borderWidth: 1
+            }]
+        };
+
+        const occupationData = {
+            labels: ['Estudiante', 'Profesional/Empleado', 'Ama de casa', 'Emprendedor'],
+            datasets: [{
+                data: [64, 28, 4, 4],
+                backgroundColor: ['#34d399', '#10b981', '#059669', '#047857'],
+                borderColor: '#ffffff',
+                borderWidth: 1
+            }]
+        };
+
+        const notificationsData = {
+            labels: ['Me encanta la idea', 'Es interesante', 'Me es indiferente'],
+            datasets: [{
+                data: [8, 16, 1],
+                backgroundColor: ['#34d399', '#10b981', '#059669'],
+                borderColor: '#ffffff',
+                borderWidth: 1
+            }]
+        };
+
+        const autoWateringData = {
+            labels: ['5 (Máxima Utilidad)', '4', '3'],
+            datasets: [{
+                data: [18, 6, 1],
+                backgroundColor: ['#34d399', '#10b981', '#059669'],
+                borderColor: '#ffffff',
+                borderWidth: 1
+            }]
+        };
+
+        const mostInterestingFunctionsData = {
+            labels: [
+                'Riego automático',
+                'Conectividad app móvil',
+                'Recomendaciones cuidado',
+                'Monitoreo tiempo real',
+                'Diseño modular',
+                'Alertas sonido/notificación'
+            ],
+            datasets: [{
+                data: [21, 16, 14, 13, 10, 8],
+                backgroundColor: [
+                    '#34d399', '#10b981', '#059669', '#047857', '#065f46', '#022c22'
+                ],
+                borderColor: '#ffffff',
+                borderWidth: 1
+            }]
+        };
+
+        const controlPreferenceData = {
+            labels: ['Solo desde la app móvil', 'Ambas opciones', 'Botones físicos/pantalla LED'],
+            datasets: [{
+                data: [13, 11, 1],
+                backgroundColor: ['#34d399', '#10b981', '#059669'],
+                borderColor: '#ffffff',
+                borderWidth: 1
+            }]
+        };
+
+        const mostValuedAspectsData = {
+            labels: ['Facilidad de uso', 'Precio accesible', 'Precisión sensores', 'Diseño bonito', 'Batería larga duración', 'Todos'],
+            datasets: [{
+                data: [9, 8, 5, 2, 2, 1],
+                backgroundColor: [
+                    '#34d399', '#10b981', '#059669', '#047857', '#065f46', '#022c22'
+                ],
+                borderColor: '#ffffff',
+                borderWidth: 1
+            }]
+        };
+
+        const utilityPlacesData = {
+            labels: ['Viveros/Invernaderos', 'Casas con jardines', 'Departamentos con plantas', 'Oficinas', 'Restaurantes con jardines verticales', 'Huertos'],
+            datasets: [{
+                data: [16, 14, 12, 10, 7, 1],
+                backgroundColor: [
+                    '#34d399', '#10b981', '#059669', '#047857', '#065f46', '#022c22'
+                ],
+                borderColor: '#ffffff',
+                borderWidth: 1
+            }]
+        };
+
+        const prototypeInterestData = {
+            labels: ['Sí, me encantaría', 'Tal vez', 'No estoy seguro/a'],
+            datasets: [{
+                data: [22, 1, 1],
+                backgroundColor: ['#34d399', '#10b981', '#059669'],
+                borderColor: '#ffffff',
+                borderWidth: 1
+            }]
+        };
+
+        const priceData = {
+            labels: ['Entre $20 y $40', 'Menos de $20', 'Entre $40 y $60', 'Más de $60', 'No estoy seguro/a'],
+            datasets: [{
+                data: [13, 6, 5, 1, 1],
+                backgroundColor: [
+                    '#34d399', '#10b981', '#059669', '#047857', '#065f46'
+                ],
+                borderColor: '#ffffff',
+                borderWidth: 1
+            }]
+        };
+
+        const logoData = {
+            labels: ['Opción 1', 'Opción 2', 'Opción 3'],
+            datasets: [{
+                data: [5, 8, 12],
+                backgroundColor: ['#34d399', '#10b981', '#059669'],
+                borderColor: '#ffffff',
+                borderWidth: 1
+            }]
+        };
+
+        // Función para crear gráficos de pastel
+        function createPieChart(ctx, data, title) {
+            new Chart(ctx, {
+                type: 'pie',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: '#166534' // Color de texto de la leyenda
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: title,
+                            color: '#14532d' // Color de texto del título
+                        }
+                    }
+                }
+            });
+        }
+
+        // Función para crear gráficos de barras
+        function createBarChart(ctx, data, title) {
+            new Chart(ctx, {
+                type: 'bar',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: title,
+                            color: '#14532d'
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                color: '#166534'
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: '#166534'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Inicializar gráficos al cargar la página
+        window.onload = function() {
+            createPieChart(document.getElementById('ageChart'), ageData, 'Edad');
+            createPieChart(document.getElementById('genderChart'), genderData, 'Género');
+            createPieChart(document.getElementById('occupationChart'), occupationData, 'Ocupación');
+            createPieChart(document.getElementById('notificationsChart'), notificationsData, 'Interés en Notificaciones');
+            createPieChart(document.getElementById('autoWateringChart'), autoWateringData, 'Utilidad Riego Automático');
+            createBarChart(document.getElementById('mostInterestingFunctionsChart'), mostInterestingFunctionsData, 'Funciones Más Interesantes');
+            createPieChart(document.getElementById('controlPreferenceChart'), controlPreferenceData, 'Preferencia de Control');
+            createBarChart(document.getElementById('mostValuedAspectsChart'), mostValuedAspectsData, 'Aspectos Más Valorados');
+            createBarChart(document.getElementById('utilityPlacesChart'), utilityPlacesData, 'Lugares de Mayor Utilidad');
+            createPieChart(document.getElementById('prototypeInterestChart'), prototypeInterestData, 'Disposición a Probar Prototipo');
+            createBarChart(document.getElementById('priceChart'), priceData, 'Precio Justo Percibido');
+            createPieChart(document.getElementById('logoChart'), logoData, 'Preferencias de Logos');
+        };
+    </script>
+</body>
+</html>
