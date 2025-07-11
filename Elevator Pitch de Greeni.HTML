@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeni: Presentación</title>
+    <!-- Carga de Tailwind CSS para estilos modernos y responsivos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Define la fuente Inter para todo el documento */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdf4; /* Un verde muy claro para el fondo */
+            color: #1a202c; /* Color de texto oscuro */
+            line-height: 1.6;
+        }
+        /* Estilos para las secciones de la presentación */
+        .slide-section {
+            min-height: 100vh; /* Cada sección ocupa al menos la altura de la ventana */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid #d1fae5; /* Separador sutil entre secciones */
+        }
+        .slide-section:last-child {
+            border-bottom: none; /* No hay borde en la última sección */
+        }
+        /* Estilo para los títulos principales de las diapositivas */
+        .slide-title {
+            font-size: 2.5rem; /* Tamaño de fuente grande para títulos */
+            font-weight: 700; /* Negrita */
+            color: #047857; /* Verde oscuro */
+            margin-bottom: 1rem;
+        }
+        /* Estilo para subtítulos y texto destacado */
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #065f46; /* Verde un poco más claro */
+            margin-bottom: 1.5rem;
+        }
+        .highlight-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #065f46;
+            margin-top: 1rem;
+        }
+        /* Estilo para el texto principal */
+        .main-text {
+            font-size: 1.125rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #374151; /* Gris oscuro */
+        }
+        /* Estilo para el gancho atractivo */
+        .hook-text {
+            font-size: 3rem; /* Muy grande para el gancho */
+            font-weight: 800;
+            color: #047857;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        /* Estilo para el llamado a la acción */
+        .call-to-action-button {
+            background-color: #10b981; /* Verde esmeralda */
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px; /* Botón redondeado */
+            font-weight: 700;
+            font-size: 1.125rem;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .call-to-action-button:hover {
+            background-color: #059669; /* Verde más oscuro al pasar el ratón */
+        }
+        /* Iconos o elementos visuales simples */
+        .icon-large {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #047857;
+        }
+        /* Responsividad para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .slide-title {
+                font-size: 2rem;
+            }
+            .subtitle {
+                font-size: 1.25rem;
+            }
+            .hook-text {
+                font-size: 2rem;
+            }
+            .main-text {
+                font-size: 1rem;
+            }
+            .icon-large {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sección 1: Título Principal / Elevator Pitch -->
+    <section class="slide-section bg-gradient-to-br from-emerald-50 to-teal-100">
+        <div class="p-8 bg-white rounded-3xl shadow-xl max-w-4xl w-full">
+            <div class="icon-large">🌟🌱💧</div>
+            <h1 class="slide-title">Elevator Pitch de Greeni</h1>
+            <p class="subtitle">Sistema de riego autónomo modular para el cuidado inteligente de plantas</p>
+        </div>
+    </section>
+
+    <!-- Sección 2: Define tu objetivo -->
+    <section class="slide-section bg-emerald-50">
+        <div class="p-8 bg-white rounded-3xl shadow-xl max-w-4xl w-full">
+            <div class="icon-large">💡📈</div>
+            <!-- Título eliminado -->
+            <p class="main-text">
+                <span class="highlight-text">Objetivo:</span> Presentar a Greeni como una solución tecnológica amigable para el cuidado sostenible de plantas, optimizando recursos y mejorando la experiencia del usuario.
+            </p>
+            <br>
+            <p class="main-text">
+                <span class="highlight-text">✔️ Núcleo del mensaje:</span> Muchas personas olvidan regar sus plantas o no saben cómo cuidarlas correctamente. Greeni automatiza el riego y monitorea las condiciones vitales con sensores, adaptándose a cada tipo de planta.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sección 3: Comienza con un gancho atractivo -->
+    <section class="slide-section bg-teal-50">
+        <div class="p-8 bg-white rounded-3xl shadow-xl max-w-4xl w-full">
+            <div class="icon-large"></div>
+            <!-- Título eliminado -->
+            <p class="hook-text">
+                ¿Y si tus plantas pudieran decirte cuándo tienen sed o necesitan sol?
+            </p>
+            <p class="hook-text mt-4">
+                Con Greeni, tu planta tiene voz — y tú, tranquilidad.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sección 4: Preséntate brevemente -->
+    <section class="slide-section bg-emerald-50">
+        <div class="p-8 bg-white rounded-3xl shadow-xl max-w-4xl w-full">
+            <div class="icon-large">👨‍💻🌱💡</div>
+            <!-- Título eliminado -->
+            <p class="main-text">
+                Soy Alexander Chantera, ingeniero en formación, apasionado por la tecnología aplicada al bienestar y la sostenibilidad. Creé Greeni para facilitar el cuidado de plantas en hogares, restaurantes y cultivos especializados.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sección 5: Explica el problema y tu solución -->
+    <section class="slide-section bg-teal-50">
+        <div class="p-8 bg-white rounded-3xl shadow-xl max-w-4xl w-full">
+            <div class="icon-large">📄🥀✅</div>
+            <!-- Título eliminado -->
+            <p class="main-text mb-4">
+                <span class="highlight-text">Problema:</span> Muchas plantas mueren por falta de cuidados adecuados y tiempo.
+            </p>
+            <p class="main-text">
+                <span class="highlight-text">Solución:</span> Greeni usa sensores de humedad 💧, luz 💡 y temperatura 🌡️ para automatizar el riego, brindando un sistema modular que se adapta a distintas necesidades y tipos de plantas.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sección 6: Destaca tu propuesta de valor única -->
+    <section class="slide-section bg-emerald-50">
+        <div class="p-8 bg-white rounded-3xl shadow-xl max-w-4xl w-full">
+            <div class="icon-large">🌿🧩📚❤️</div>
+            <!-- Título eliminado -->
+            <p class="main-text mb-4">
+                Greeni no solo riega, sino que "entiende" las necesidades de cada planta.
+            </p>
+            <p class="main-text">
+                Es personalizable, educativo, y tiene un diseño tipo tamagotchi que crea una conexión emocional entre el usuario y su planta.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sección 7: Finaliza con un llamado a la acción -->
+    <section class="slide-section bg-teal-50">
+        <div class="p-8 bg-white rounded-3xl shadow-xl max-w-4xl w-full">
+            <div class="icon-large">🎬🚀🌍</div>
+            <!-- Título eliminado -->
+            <p class="main-text mb-6">
+                ¿Te gustaría que tus plantas se cuiden solas mientras aprendes a cuidarlas mejor?
+            </p>
+            <a href="#" class="call-to-action-button">
+                Súmate a la revolución verde con Greeni. ¡Conéctate, cultiva y transforma!
+            </a>
+        </div>
+    </section>
+
+    <!-- Sección 8: Versión condensada para presentar en 30 segundos -->
+    <section class="slide-section bg-gradient-to-br from-emerald-50 to-teal-100">
+        <div class="p-8 bg-white rounded-3xl shadow-xl max-w-4xl w-full">
+            <div class="icon-large">🎙️⏰🗣️</div>
+            <!-- Título eliminado -->
+            <p class="main-text mb-4">
+                ¿Y si tus plantas pudieran decirte cuándo tienen sed?
+            </p>
+            <p class="main-text mb-4">
+                Soy Alexander Chantera, y creé Greeni, un sistema de riego autónomo que cuida tus plantas por ti.
+            </p>
+            <p class="main-text mb-4">
+                Usa sensores de humedad, luz y temperatura, y se adapta a cada especie.
+            </p>
+            <p class="main-text mb-6">
+                Greeni no solo automatiza: educa, conecta y cultiva el hábito sostenible.
+            </p>
+            <p class="main-text font-bold text-xl text-emerald-700">
+                ¿Quieres hacer parte de esta revolución verde? ¡Hablemos!
+            </p>
+        </div>
+    </section>
+
+</body>
+</html>
+ 
